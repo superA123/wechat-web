@@ -1,0 +1,29 @@
+server:
+  port: 8081
+spring:
+  profiles: dev
+  datasource:
+      default-dataSource-name: dataSourceGuns #默认的数据源名称
+      url: jdbc:mysql://10.1.180.136:3306/task?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root
+      db-name: task
+---
+spring:
+  profiles: dev
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://pig:gip6666@localhost:1025/eureka
+
+---
+spring:
+  profiles: prd
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://pig:gip6666@pig-eureka:1025/eureka
